@@ -68,7 +68,7 @@ HGLOBAL WINAPI Hook_LoadResource(HMODULE hModule, HRSRC hResInfo)
 		MessageBoxW(NULL, L"Real_LoadResource is NULL", L"Error", MB_OK);
 		return NULL;
 	}
-	if (IsTargetFound)
+	if (IsTargetFound && !IsPatternFound && !IsReplaced)
 	{
 		HGLOBAL hGlobal = Real_LoadResource(hModule, hResInfo);
 		if (hGlobal != NULL)
